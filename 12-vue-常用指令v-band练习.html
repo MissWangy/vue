@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    .active{
+        color:#fff;
+        background:orange;
+        font-size:20px;
+    }
+</style>
+</head>
+<body>
+<script src="js/vue.js"></script>
+        <div class="box">
+            <p v-for="(p,index) in array" :class="index === activeIndex ? 'active' : ''">
+                {{p}}
+            </p>
+            <p :style="{color:fontColor}">今天的天气很好！</p>
+        </div>
+        <script>
+            let vm = new Vue({
+                el:".box",
+                data:{
+                    array:[
+                        "HTML5",
+                        "Java学院",
+                        "ios学院",
+                        "ui学院",
+                        "C++学院"
+                    ],
+                    activeIndex:3,
+                    fontColor:"#f00"
+                }
+            })
+
+</script>
+</body>
+</html>

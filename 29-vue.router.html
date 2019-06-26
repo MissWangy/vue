@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bs/css/bootstrap.css">
+<style>
+body,html{
+    background:#ccc;
+}
+</style>
+</head>
+<body>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+        <div id="box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="page-header">IT666</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="list-group">
+                            <!-- 使用 router-link 组件来导航. -->
+                            <!-- 通过传入 `to` 属性指定链接. -->
+                            <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+                            <router-link class="list-group-item" to="/h5">h5</router-link>
+                            <router-link class="list-group-item" to="/java">java</router-link>
+                            <router-link class="list-group-item" to="/python">python</router-link>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="panel">
+                            <div class="panel-banner">
+                                <!-- 路由出口 -->
+                                <!-- 路由匹配到的组件将渲染在这里 -->
+                                <router-view></router-view>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <template id="h5">
+            <div>
+                <h2>HTML5学院</h2>
+                <p>掌握面向未来的神技</p>
+                <img src="img/01.jpg" width="200">
+            </div>
+        </template>
+        <template id="java">
+            <div>
+                <h2>Java学院</h2>
+                <p>Java是最好的语言</p>
+                <img src="img/02.jpg" width="200">
+            </div>
+        </template>
+        <template id="python">
+            <div>
+                <h2>python学院</h2>
+                <p>python好</p>
+                <img src="img/01.jpg" width="200">
+            </div>
+        </template>
+        <script>
+
+            //创建组件
+            const html5 = Vue.extend({
+                template:"#h5",
+            });
+            const java = Vue.extend({
+                template:"#java",
+            });
+            const python = Vue.extend({
+                template:"#python",
+            });
+            //定义路由
+            const routes = [
+                {path:"/h5",component:html5},
+                {path:"/java",component:java},
+                {path:"/python",component:python},
+                {path:"/",redirect:"/h5"}
+            ];
+            //创建路由实例
+            const router = new VueRouter({
+                routes
+            });
+            //创建vue的实例并挂载
+            new Vue({
+                router
+            }).$mount("#box");
+
+
+
+</script>
+</body>
+</html>

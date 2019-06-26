@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+.box{
+    width:600px;
+    margin: 50px auto
+}
+</style>
+</head>
+<body>
+<script src="js/vue.js"></script>
+        <div class="box">
+            <my-date></my-date>
+        </div>
+        <script>
+            //创建一个组件构造器
+            /*let Profile = Vue.extend({
+                //模板选项
+                template:`<div>
+                        <input type="date">
+                        <p>今天已经是冬天了！</p>
+                    </div> `
+            })*/
+            //注册全局组件
+            Vue.component("my-date",Profile);
+
+            //注册全局组件
+            Vue.component("my-date",{
+                //模板选项
+                template:`
+                    <div>
+                        <input type="date">
+                        <p>今天已经是冬天了！</p>
+                    </div>
+                `
+            });
+            let vm = new Vue({
+                el:".box"
+            })
+
+</script>
+</body>
+</html>

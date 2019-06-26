@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script src="js/vue.js"></script>
+        <div class="box">
+            <img v-bind:src="imgSrc" :alt="alt">
+        </div>
+        <script>
+            let vm = new Vue({
+                el:".box",
+                data:{
+                        imgSrc:"img/微信图片_20171106201440.jpg",
+                        alt:"猫咪"
+                }
+            })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script src="js/vue.js"></script>
+        <div class="box">
+            <p v-once>原始值：{{msg}}</p>
+            <p>后面的：{{msg}}</p>
+            <input type="text" v-model="msg"/>
+        </div>
+        <script>
+            let vm = new Vue({
+                el:".box",
+                data:{
+                    msg:"hello word"
+                }
+            })
+
+</script>
+</body>
+</html>

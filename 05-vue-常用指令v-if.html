@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script src="js/vue.js"></script>
+        <div class="box">
+            <p v-if="height1 > 1.7">小明的身高{{height1}}m</p>
+            <p v-else>小明的身高不足1.68m</p>
+        </div>
+        <script>
+            let vm = new Vue({
+                el:".box",
+                data:{
+                    height1:1.9
+                }
+            })
+
+</script>
+</body>
+</html>

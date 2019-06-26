@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+.box{
+    width:600px;
+    margin: 50px auto
+}
+</style>
+</head>
+<body>
+<script src="js/vue.js"></script>
+        <div class="box">
+            <my-parent imgtitle="我很漂亮" imgsrc="img/01.jpg"></my-parent>
+        </div>
+
+        <template id="my-img">
+            <img :src="imgsrc" width="200">
+        </template>
+        <template id="my-title">
+            <h2>{{title}}</h2>
+        </template>
+
+        <template id="my-parent">
+            <div>
+                <child1 :imgsrc="imgsrc"></child1>
+                <child2 :title="imgtitle"></child2>
+            </div>
+        </template>
+        <script>
+            //子组件的实例
+            let child1 = Vue.extend({
+                template:"#my-img",
+                props:["imgsrc"]
+            });
+            let child2 = Vue.extend({
+                template:"#my-title",
+                props:["title"]
+            });
+
+            //实例化组件
+            Vue.component("my-parent",{
+                props:["imgtitle","imgsrc"],
+                template:"#my-parent",
+                components:{
+                    "child1":child1,
+                    "child2":child2
+                }
+            })
+            new Vue({
+                el:".box",
+              /*  data:{
+                    title:"我很漂亮",
+                    img:"img/01.jpg"
+                }*/
+            })
+
+</script>
+</body>
+</html>

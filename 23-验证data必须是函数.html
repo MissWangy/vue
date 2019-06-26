@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+.box{
+    width:600px;
+    margin: 50px auto
+}
+</style>
+</head>
+<body>
+<script src="js/vue.js"></script>
+        <div class="box">
+            <my-btn></my-btn>
+        </div>
+
+        <template id="my_btn">
+            <button @click="counter += 1">点击次数：{{counter}}</button>
+        </template>
+        <script>
+            //实例化组件
+            Vue.component("my-btn",{
+                template:'#my_btn',
+                data(){
+                    return {
+                        counter:0
+                    }
+                }
+            })
+
+            new Vue({
+                el:".box",
+            })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+.box{
+    width:600px;
+    margin: 50px auto
+}
+</style>
+</head>
+<body>
+<script src="js/vue.js"></script>
+        <div class="box">
+            <my-slot>
+                <div slot="11">asdg</div>
+                <img slot="22" src="img/01.jpg" width="200">
+            </my-slot>
+        </div>
+        <template id="my-slot">
+            <div id="panel">
+                <slot name="11">11</slot>
+                <slot name="22">22</slot>
+                <slot name="33">33</slot>
+                <slot name="44">44</slot>
+            </div>
+        </template>
+
+        <script>
+
+            //实例化组件
+            Vue.component("my-slot",{
+                template:"#my-slot"
+            })
+            new Vue({
+                el:".box",
+              /*  data:{
+                    title:"我很漂亮",
+                    img:"img/01.jpg"
+                }*/
+            })
+
+</script>
+</body>
+</html>

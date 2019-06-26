@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script src="js/vue.js"></script>
+        <div class="box">
+            <p v-for="(score,index) in scores">{{score}}</p>
+
+            <p v-for="d in dog">{{d}}</p>
+
+            <p v-for="str in name">{{str}}</p>
+
+            <p v-for="strs in iphone">{{strs}}</p>
+        </div>
+        <script>
+            let vm = new Vue({
+                el:".box",
+                data:{
+                    scores:[100,90,80,70], //数组
+                    dog:{
+                        name:"旺财",    //对象
+                        age:4
+                    },
+                    name:"zhangsan", //字符串
+                    iphone:"12345"  //数字
+                }
+            })
+
+</script>
+</body>
+</html>

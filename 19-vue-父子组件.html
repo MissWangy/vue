@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      .box {
+        width: 600px;
+        margin: 50px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="js/vue.js"></script>
+    <div class="box">
+      <parent></parent>
+    </div>
+    <script>
+      //创建一个子组件构造器
+      let Profile = {
+        //模板选项
+        template: `<img src="img/01.jpg" width="200">`
+      };
+      let Profile1 = Vue.extend({
+        //模板选项
+        template: `<p>我认为自己很美</p>`
+      });
+      Vue.component("parent", Profile);
+      //父组件构造器
+      Vue.component("parent", {
+        components: {
+          "my-date": Profile,
+          "my-day": Profile1
+        },
+        template: `
+                    <div>
+                        <my-date></my-date>
+                        <my-day></my-day>
+                    </div>
+                `
+      });
+      let vm = new Vue({
+        el: ".box"
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+.box{
+    width:600px;
+    margin: 50px auto
+}
+</style>
+</head>
+<body>
+<script src="js/vue.js"></script>
+        <div class="box">
+            <my-slot>
+                <img src="img/01.jpg" width="200">
+            </my-slot>
+        </div>
+        <template id="my-slot">
+            <div id="panel">
+               <!-- <h2 class="panel-header">插槽的头部</h2>-->
+                <!--预留一个插槽-->
+                <slot>可以替换任何标签，默认显示提示的内容</slot>
+               <!-- <footer>插槽的尾部</footer>-->
+            </div>
+        </template>
+
+        <script>
+
+            //实例化组件
+            Vue.component("my-slot",{
+                template:"#my-slot"
+            })
+            new Vue({
+                el:".box",
+              /*  data:{
+                    title:"我很漂亮",
+                    img:"img/01.jpg"
+                }*/
+            })
+
+</script>
+</body>
+</html>

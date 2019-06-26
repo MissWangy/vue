@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      .box {
+        width: 600px;
+        margin: 50px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="js/vue.js"></script>
+    <div class="box">
+      <input type="text" v-model="name" />
+      <p>初始值：{{ name }}</p>
+      <p>
+        翻转值：{{
+          name
+            .split("")
+            .reverse()
+            .join("")
+        }}
+      </p>
+      <p>函数调用：{{ reverStr() }}</p>
+      <p>计算属性：{{ reverse }}</p>
+    </div>
+    <script>
+      let vm = new Vue({
+        el: ".box",
+        data: {
+          name: ""
+        },
+        methods: {
+          reverStr() {
+            return this.name
+              .split("")
+              .reverse()
+              .join("");
+          }
+        },
+        computed: {
+          reverse() {
+            return this.name
+              .split("")
+              .reverse()
+              .join("");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

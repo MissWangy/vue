@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+.box{
+    width:600px;
+    margin: 50px auto
+}
+</style>
+</head>
+<body>
+<script src="js/vue.js"></script>
+        <div class="box">
+            <my-date></my-date>
+            <my-day></my-day>
+        </div>
+        <script>
+            //创建一个组件构造器
+            let Child = {
+                //模板选项
+                template:`<div>
+                        <input type="date">
+                        <p>夏天！</p>
+                    </div> `
+            };
+            let Profile1 = Vue.extend({
+                //模板选项
+                template:`<div>
+                        <input type="date">
+                        <p>今天已经是冬天了！</p>
+                    </div> `
+            })
+
+
+            let vm = new Vue({
+                el:".box",
+                components:{
+                    "my-date":Child,
+                    "my-day":Profile1,
+                }
+            })
+
+</script>
+</body>
+</html>

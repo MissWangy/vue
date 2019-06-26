@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+.box{
+    width:600px;
+    margin: 50px auto
+}
+</style>
+</head>
+<body>
+<script src="js/vue.js"></script>
+        <div class="box">
+            <p>{{fullName}}</p>
+            <button @click="deal()">调用计算属性的setter方法</button>
+        </div>
+        <script>
+            let vm = new Vue({
+                el:".box",
+                data:{
+                    firstName:"zhang",
+                    lastName:"sanfeng"
+                },
+                methods:{
+                    deal(){
+                        //调用get方法并重新赋值
+                        this.fullName = "Token Lilly"
+                    }
+                },
+                computed:{
+                    /*fullName() {
+                        return this.firstName + " " + this.lastName
+                    }*/
+                    fullName:{
+                        //get方法
+                        get(){
+                            return this.firstName + " " + this.lastName
+                        },
+                        set(str){
+                            let nameArr = str.split(" ");
+                            this.firstName = nameArr[0];
+                            this.lastName = nameArr[1];
+                        }
+                    }
+
+
+                }
+
+
+
+            })
+
+</script>
+</body>
+</html>
